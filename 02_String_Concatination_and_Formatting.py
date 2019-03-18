@@ -14,7 +14,7 @@ LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 logging.basicConfig(filename="LOG_files/LOG_02.Log",
                     level=logging.DEBUG,
                     format=LOG_FORMAT,
-                    filemode='a')
+                    filemode='w')
 logger = logging.getLogger()
 logger.info("02_String_Concatination_and_Formatting.py RUN / START")
 

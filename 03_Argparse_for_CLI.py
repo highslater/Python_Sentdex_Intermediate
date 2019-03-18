@@ -15,7 +15,7 @@ LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 logging.basicConfig(filename="LOG_files/LOG_03.Log",
                     level=logging.DEBUG,
                     format=LOG_FORMAT,
-                    filemode='a')
+                    filemode='w')
 logger = logging.getLogger()
 logger.info("03_Argparse_for_CLI.py RUN / START")
 

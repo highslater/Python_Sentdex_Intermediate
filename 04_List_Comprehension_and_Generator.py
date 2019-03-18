@@ -1,8 +1,8 @@
 #!/usr/bin/env python3.7
 
-"""00_template.py.
+"""04_List_Comprehension_and_Generator.py.
 
-Zeroeth Program of the Sentdex Intermediate Python Series.
+ZFourth Program of the Sentdex Intermediate Python Series.
 
 """
 import logging
@@ -10,9 +10,9 @@ import logging
 
 LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 
-logging.basicConfig(filename="LOG_files/LOG_00.Log",
+logging.basicConfig(filename="LOG_files/LOG_04.Log",
                     level=logging.DEBUG,
                     format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-logger.info("00_template.py RUN / START")
+logger.info("04_List_Comprehension_and_Generator.py RUN / START")
