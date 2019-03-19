@@ -16,3 +16,20 @@ logging.basicConfig(filename="LOG_files/LOG_07.Log",
                     filemode='w')
 logger = logging.getLogger()
 logger.info("07_Enumerate.py RUN / START")
+
+
+example = ['right', 'left', 'up', 'down']
+
+for i in range(len(example)):
+    print(i, example[i], end=", ")
+print()
+
+for i, j in enumerate(example):
+    print(i, j, end=", ")
+print()
+
+new_dict = dict(enumerate(example))
+print(new_dict)
+
+x = [((k, v)) for k, v in new_dict.items()]
+print(x)
