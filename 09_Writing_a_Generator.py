@@ -23,6 +23,7 @@ logger.info("09_Wiriting_Generators.py RUN / START")
 
 [print(version_info), None][PRINT_VERSION_INFO]
 
+
 '''
 
 def simple_gen():
