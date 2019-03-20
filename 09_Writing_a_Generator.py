@@ -82,7 +82,7 @@ for (c1, c2, c3) in g:  # combo_gen() or g or l
 
 # ====== timeit ======
 
-print("g = ", timeit.timeit("""
+print("g = \t\t", timeit.timeit("""
 CORRECT_COMBO = (9, 9, 9)
 g = ((c1, c2, c3)
     for c1 in range(10)
@@ -94,7 +94,7 @@ for (c1, c2, c3) in g:  # combo_gen() or g or l
         break
 """, number=50000))
 
-print("l = ", timeit.timeit("""
+print("l = \t\t", timeit.timeit("""
 CORRECT_COMBO = (9, 9, 9)
 l = [(c1, c2, c3)
      for c1 in range(10)
@@ -106,7 +106,7 @@ for (c1, c2, c3) in l:  # combo_gen() or g or l
         break
 """, number=50000))
 
-print("combo_gen() = ", timeit.timeit("""
+print("combo_gen() = \t", timeit.timeit("""
 CORRECT_COMBO = (9, 9, 9)
 
 
@@ -127,7 +127,8 @@ for (c1, c2, c3) in combo_gen():  # combo_gen() or g or l
 $ ./09_Writing_a_Generator.py
 The Python Version is: 3.7.2  #50791152
 Found the combo: (9, 9, 9)
-g =  17.42452411499835
-l =  15.667225689001498
-combo_gen() =  17.525755146001757
+g =              17.330743318001623
+l =              15.685296003000985
+combo_gen() =    17.58578377199592
+
 '''
