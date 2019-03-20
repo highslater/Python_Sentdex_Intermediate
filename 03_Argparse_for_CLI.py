@@ -6,18 +6,23 @@ Third Program of the Sentdex Intermediate Python Series.
 
 """
 import logging
+from platform import python_version
 import argparse
 import sys
+from sys import hexversion
 
-
+PRINT_VERSION_INFO = True
 LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-
+version_info = "The Python Version is: {}  #{}".format(
+    python_version(), str((hexversion)))
 logging.basicConfig(filename="LOG_files/LOG_03.Log",
-                    level=logging.DEBUG,
-                    format=LOG_FORMAT,
+                    level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
+[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("03_Argparse_for_CLI.py RUN / START")
+
+[print(version_info), None][PRINT_VERSION_INFO]
 
 
 def main():

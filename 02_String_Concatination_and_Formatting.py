@@ -5,18 +5,25 @@
 Second Program of the Sentdex Intermediate Python Series.
 
 """
+
 import logging
 import os  # noqa
+from platform import python_version
+from sys import hexversion
 
-
+PRINT_VERSION_INFO = True
 LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-
+version_info = "The Python Version is: {}  #{}".format(
+    python_version(), str((hexversion)))
 logging.basicConfig(filename="LOG_files/LOG_02.Log",
-                    level=logging.DEBUG,
-                    format=LOG_FORMAT,
+                    level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
+[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("02_String_Concatination_and_Formatting.py RUN / START")
+
+[print(version_info), None][PRINT_VERSION_INFO]
+
 
 # ====== String Concatination ======
 
