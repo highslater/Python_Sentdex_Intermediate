@@ -24,24 +24,21 @@ logger.info("11_Returned_Values.py RUN / START")
 
 [print(version_info), None][PRINT_VERSION_INFO]
 
-
-def main():
-    """Docstring."""
-    data = []
-    iterals = [range(10), range(20), [4], [4, 8], [4, 8, 12], [], range(21)]
-    p = Pool(processes=20)
-
-    for i in iterals:
-        data.append(p.map(job, i))
-
-    p.close()
-
-    print_d(data)
+ITERALS = [range(10), range(20), [4], [4, 8], [4, 8, 12], [], range(21)]
+DATA = []
 
 
 def job(num):
     """Docstring."""
     return num * 2
+
+
+def iterate(iterals):
+    """Docstring."""
+    p = Pool(processes=20)
+    for i in iterals:
+        DATA.append(p.map(job, i))
+    p.close()
 
 
 def print_d(data):
@@ -50,4 +47,5 @@ def print_d(data):
 
 
 if __name__ == '__main__':
-    main()
+    iterate(ITERALS)
+    print_d(DATA)
