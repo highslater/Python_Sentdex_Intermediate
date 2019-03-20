@@ -8,7 +8,7 @@ Elevenenth Program of the Sentdex Intermediate Python Series.
 import logging
 from platform import python_version
 from sys import hexversion
-import multiprocessing
+from multiprocessing import Pool
 
 
 PRINT_VERSION_INFO = True
@@ -25,19 +25,29 @@ logger.info("11_Returned_Values.py RUN / START")
 [print(version_info), None][PRINT_VERSION_INFO]
 
 
-def spawn(num1, num2, num3, num4, num5, num6, num7, num8, num9, num10):
+def main():
     """Docstring."""
-    print('Spawned!{}, {}, {}, {}, {}, {}, {}, {}, {}'.format(num1, num2,
-                                                              num3, num4,
-                                                              num5, num6,
-                                                              num7, num8,
-                                                              num9, num10))
+    data = []
+    iterals = [range(10), range(20), [4], [4, 8], [4, 8, 12], [], range(21)]
+    p = Pool(processes=20)
+
+    for i in iterals:
+        data.append(p.map(job, i))
+
+    p.close()
+
+    print_d(data)
+
+
+def job(num):
+    """Docstring."""
+    return num * 2
+
+
+def print_d(data):
+    """Docstring."""
+    [print(d) for d in data if d and len(d) < 21]
+
 
 if __name__ == '__main__':
-    for i in range(10):
-        p = multiprocessing.Process(
-            target=spawn,
-            args=(i, i ** 2, i ** 3, i ** 4, i ** 5,
-                  i ** 6, i ** 7, i ** 8, i ** 9, i ** 10))
-        p.start()
-        p.join()
+    main()
