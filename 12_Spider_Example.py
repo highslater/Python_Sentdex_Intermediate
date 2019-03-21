@@ -3,6 +3,7 @@
 """12_Spider_Example.py.
 
 Twelfth Program of the Sentdex Intermediate Python Series.
+had to bump down the python version to 3.5 to get all modules to work.
 
 """
 import logging
@@ -20,7 +21,7 @@ LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 version_info = "The Python Version is: {}  #{}".format(
     python_version(), str((hexversion)))
 logging.basicConfig(filename="LOG_files/LOG_12.Log",
-                    level=logging.DEBUG, format=LOG_FORMAT,
+                    level=logging.ERROR, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
 [logger.debug(version_info), None][PRINT_VERSION_INFO]
@@ -49,32 +50,29 @@ def get_links(url):
         body = soup.body
         links = [link.get('href') for link in body.find_all('a')]
         links = [handle_local_links(url, link) for link in links]
-        links = [str(link.encode("ascii")) for link in links]
+        # links = [str(link.encode("ascii")) for link in links]
         return links
+
     except TypeError as e:
-        print(e)
-        # Log Error to file.
-        print("Got a TypeError, probably tried iterating over a None")
+        logger.error("TypeError: {}.".format(str(e)))
+        print("Got a TypeError")
         return []
 
     except IndexError as e:
-        print(e)
-        # Log Error to file.
-        print("Got a IndexError, probably did not find any usefull links"
-              "Returning []")
+        logger.error("IndexError: {}.".format(str(e)))
+        print("Got a IndexError")
         return []
 
     except AttributeError as e:
-        print(e)
-        # Log Error to file.
-        print("Got a AttributeError, probably tried iterating over a None")
+        logger.error("AttributeError: {}.".format(str(e)))
+        print("Got a AttributeError")
         return []
 
     except Exception as e:
-        print(e)
-        # Log Error to file.
+        logger.error("Exception: {}.".format(str(e)))
         print("Got a General Exception, dunnno")
         return []
+
     else:
         pass
     finally:
@@ -91,7 +89,9 @@ def main():
     p.close()
 
     with open('./Files/urls.txt', 'w') as f:
-        f.write(str(data))
+        for d in data:
+            d = (d + ",\n")
+            f.write(d)
 
 
 if __name__ == '__main__':
