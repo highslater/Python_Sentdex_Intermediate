@@ -19,10 +19,7 @@ logging.basicConfig(filename="LOG_files/LOG_02.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("02_String_Concatination_and_Formatting.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 # ====== String Concatination ======

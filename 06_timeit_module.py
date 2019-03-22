@@ -18,10 +18,7 @@ logging.basicConfig(filename="LOG_files/LOG_06.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("06_timeit_module.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 print("GENERATE= ", timeit.timeit("""

@@ -19,10 +19,7 @@ logging.basicConfig(filename="LOG_files/LOG_10.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("10_Multiprocessing.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 def spawn(num1, num2, num3, num4, num5, num6, num7, num8, num9, num10):

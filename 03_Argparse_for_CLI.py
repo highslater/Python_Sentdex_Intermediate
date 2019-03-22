@@ -19,10 +19,7 @@ logging.basicConfig(filename="LOG_files/LOG_03.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("03_Argparse_for_CLI.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 def main():

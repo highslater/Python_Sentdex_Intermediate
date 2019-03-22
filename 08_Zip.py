@@ -17,10 +17,7 @@ logging.basicConfig(filename="LOG_files/LOG_08.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("08_Zip.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 x = [1, 2, 3, 4]

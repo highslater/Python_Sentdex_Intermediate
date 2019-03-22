@@ -17,10 +17,7 @@ logging.basicConfig(filename="LOG_files/LOG_04.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("04_List_Comprehension_and_Generator.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 list_1 = [i for i in range(5)]

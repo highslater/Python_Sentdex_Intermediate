@@ -19,10 +19,8 @@ logging.basicConfig(filename="LOG_files/LOG_11.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("11_Returned_Values.py RUN / START")
 
-[print(version_info), None][PRINT_VERSION_INFO]
 
 ITERALS = [range(10), range(20), [4], [4, 8], [4, 8, 12], [], range(21)]
 DATA = []

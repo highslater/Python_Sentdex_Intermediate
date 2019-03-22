@@ -10,7 +10,7 @@ from sys import hexversion
 import timeit
 import time
 
-PRINT_VERSION_INFO = True
+PRINT_VERSION_INFO = False
 LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 version_info = "The Python Version is: {}  #{}".format(
     python_version(), str((hexversion)))
@@ -18,10 +18,7 @@ logging.basicConfig(filename="LOG_files/LOG_09.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("09_Wiriting_Generators.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 '''

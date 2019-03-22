@@ -24,10 +24,7 @@ logging.basicConfig(filename="LOG_files/LOG_12.Log",
                     level=logging.ERROR, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("12_Spider_Example.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
 
 
 def random_starting_url():

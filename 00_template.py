@@ -17,7 +17,4 @@ logging.basicConfig(filename="LOG_files/LOG_00.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
-[logger.debug(version_info), None][PRINT_VERSION_INFO]
 logger.info("00_template.py RUN / START")
-
-[print(version_info), None][PRINT_VERSION_INFO]
