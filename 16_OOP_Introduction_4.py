@@ -1,8 +1,8 @@
 #!/usr/bin/env python3.5
 
-"""15_OOP_Introduction_3.py.
+"""16_OOP_Introduction_4.py.py.
 
-Fifteenth Program of the Sentdex Intermediate Python Series.
+Sixteenth Program of the Sentdex Intermediate Python Series.
 downgraded to accomodate pygame module.
 
 """
@@ -22,13 +22,13 @@ LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 
 version_info = "The Python Version is: {}  #{}".format(
     python_version(), str(hexversion))
-logging.basicConfig(filename="LOG_files/LOG_15.Log",
+logging.basicConfig(filename="LOG_files/LOG_16.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
 logger.info(NOW.strftime("%A, %B, %d, %Y")) if PRINT_TIME else None
 logger.info(version_info) if PRINT_VERSION_INFO else None
-logger.debug("15_OOP_Introduction_3.py. RUN / START")
+logger.debug("16_OOP_Introduction_4.py. RUN / START")
 
 print("Today is:", NOW.strftime("%A, %B, %d, %Y")) if PRINT_TIME else None
 print(version_info) if PRINT_VERSION_INFO else None
@@ -49,7 +49,6 @@ STARTING_GREEN_ELEMENTS = 1
 STARTING_WHITE_ELEMENTS = 1
 
 
-# pygame.init()
 game_display = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("~ Element World ~")
 clock = pygame.time.Clock()
@@ -77,20 +76,10 @@ class Element():
         elif self.x > WIDTH:
             self.x = WIDTH
 
-        # self.x = [0, self.x][self.x < 0]
-        # self.x = [WIDTH, self.x][self.x > WIDTH]
-
-        # self.x = [[0, self.x][WIDTH, self.x]][[self.x < 0][self.x > WIDTH]]
-
         if self.y < 0:
             self.y = 0
         elif self.y > HEIGHT:
             self.y = HEIGHT
-
-        # self.y = [0, self.y][self.y < 0]
-        # self.y = [HEIGHT, self.y][self.y > HEIGHT]
-
-        # self.y = [[0, self.y][HEIGHT, self.y]][[self.y < 0][self.y > HEIGHT]]
 
 
 def draw_environment(element_list):
@@ -132,7 +121,7 @@ def main():
                 quit()
         draw_environment([red_elements, blue_elements,
                           green_elements, white_elements])
-        clock.tick(5)  # 60 was giving me a headache
+        clock.tick(5)
 
 
 if __name__ == '__main__':
