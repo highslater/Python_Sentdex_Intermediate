@@ -41,17 +41,17 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 
-STARTING_BLUE_ELEMENTS = 1
-STARTING_RED_ELEMENTS = 1
-STARTING_GREEN_ELEMENTS = 1
-STARTING_WHITE_ELEMENTS = 1
+STARTING_BLUE_ELEMENTS = 5
+STARTING_RED_ELEMENTS = 5
+STARTING_GREEN_ELEMENTS = 5
+STARTING_WHITE_ELEMENTS = 5
 
 game_display = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("~ Element World ~")
 clock = pygame.time.Clock()
 
 
-def make_random_dict():
+def params():
     """Docstring."""
     red_elements = list([Element(RED, WIDTH, HEIGHT)for i in range(
         STARTING_RED_ELEMENTS)])
@@ -61,12 +61,10 @@ def make_random_dict():
         STARTING_GREEN_ELEMENTS)])
     white_elements = list([Element(WHITE, WIDTH, HEIGHT)for i in range(
         STARTING_WHITE_ELEMENTS)])
-
     el_list = red_elements + blue_elements + green_elements + white_elements
     random.shuffle(el_list)
-    shuffled_dict = dict(enumerate(el_list))
-
-    return shuffled_dict
+    params = dict(enumerate(el_list))
+    return params
 
 
 def pygame_init(random_dict):
@@ -90,13 +88,12 @@ def draw_environment(random_dict):
                            [element.x, element.y], element.size)
         element.move()
         element.check_bounds()
-
     pygame.display.update()
 
 
 def main():
     """Docstring."""
-    pygame_init(make_random_dict())
+    pygame_init(params())
 
 
 if __name__ == '__main__':
