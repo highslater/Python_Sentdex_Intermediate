@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.5
 
-"""17SCRATCH_OOP_Introduction_5.py.
+"""17_DEV_OOP_Introduction_5_DEV.py.
 
 Seventeenth Program of the Sentdex Intermediate Python Series.
 downgraded to accomodate pygame module.
@@ -21,13 +21,13 @@ LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
 
 version_info = "The Python Version is: {}  #{}".format(
     python_version(), str(hexversion))
-logging.basicConfig(filename="LOG_files/LOG_17S.Log",
+logging.basicConfig(filename="LOG_files/LOG_17DEV.Log",
                     level=logging.DEBUG, format=LOG_FORMAT,
                     filemode='w')
 logger = logging.getLogger()
 logger.info(NOW.strftime("%A, %B, %d, %Y")) if PRINT_TIME else None
 logger.info(version_info) if PRINT_VERSION_INFO else None
-logger.debug("17SCRATCH_OOP_Introduction_5.py. RUN / START")
+logger.debug("17_DEV_OOP_Introduction_5_DEV.py. RUN / START")
 
 print("Today is:", NOW.strftime("%A, %B, %d, %Y")) if PRINT_TIME else None
 print(version_info) if PRINT_VERSION_INFO else None
