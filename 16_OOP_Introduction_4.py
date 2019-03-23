@@ -84,12 +84,16 @@ class Element():
 
 def draw_environment(element_list):
     """Docstring."""
+    logger.info('-' * 45)
+    logger.info(' {}\t{}\t {}\t{}'.format('#', '( x, y )', 'size', 'color'))
+    logger.info('-' * 45)
+
     game_display.fill(BLACK)
     for colored_elements in element_list:
         for element_id in colored_elements:
             element = colored_elements[element_id]
 
-            logger.debug('{},\t{},\t\t{},\t{}'.format(
+            logger.debug('{} \t{} \t\t{} \t{}'.format(
                 element_id, (element.x, element.y),
                 element.size, element.color))
 
@@ -121,7 +125,7 @@ def main():
                 quit()
         draw_environment([red_elements, blue_elements,
                           green_elements, white_elements])
-        clock.tick(5)
+        clock.tick(1)
 
 
 if __name__ == '__main__':
