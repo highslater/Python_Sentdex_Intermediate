@@ -43,10 +43,10 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 
-STARTING_BLUE_ELEMENTS = 1
-STARTING_RED_ELEMENTS = 1
-STARTING_GREEN_ELEMENTS = 1
-STARTING_WHITE_ELEMENTS = 1
+STARTING_BLUE_ELEMENTS = 10
+STARTING_RED_ELEMENTS = 10
+STARTING_GREEN_ELEMENTS = 10
+STARTING_WHITE_ELEMENTS = 10
 
 
 game_display = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -84,19 +84,20 @@ class Element():
 
 def draw_environment(element_list):
     """Docstring."""
+# Log v
     logger.info('-' * 45)
     logger.info(' {}\t{}\t {}\t{}'.format('#', '( x, y )', 'size', 'color'))
     logger.info('-' * 45)
-
+# Log ^
     game_display.fill(BLACK)
     for colored_elements in element_list:
         for element_id in colored_elements:
             element = colored_elements[element_id]
-
+# Log v
             logger.debug('{} \t{} \t\t{} \t{}'.format(
                 element_id, (element.x, element.y),
                 element.size, element.color))
-
+# Log ^
             pygame.draw.circle(game_display, element.color,
                                [element.x, element.y], element.size)
             element.move()
