@@ -12,7 +12,7 @@ from platform import python_version
 from sys import hexversion
 import pygame
 from datetime import datetime as dt
-from element17 import Element
+from element17_DEV import Element
 
 NOW = dt.today()
 PRINT_VERSION_INFO = True
