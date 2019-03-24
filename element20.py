@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.5
 
-"""element19.py.
+"""element20.py.
 
 MODULE for Seventeenth Program of the Sentdex Intermediate Python Series.
 downgraded to accomodate pygame module.
