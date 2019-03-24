@@ -10,7 +10,7 @@ from platform import python_version
 from sys import hexversion
 import pygame
 from datetime import datetime as dt
-from element17 import Element
+from element19 import Element
 from random import randrange as rr
 
 NOW = dt.today()
@@ -54,10 +54,9 @@ clock = pygame.time.Clock()
 class BlueElement(Element):
     """Docstring."""
 
-    def __init__(self, color, x_bound, y_bound):
+    def __init__(self, x_bound, y_bound):
         """Docstring."""
-        super().__init__(color, x_bound, y_bound)
-        self.color = BLUE
+        super().__init__((0, 0, 255), x_bound, y_bound)
 
     def move_unique(self):
         """Docstring."""
@@ -68,10 +67,9 @@ class BlueElement(Element):
 class GreenElement(Element):
     """Docstring."""
 
-    def __init__(self, color, x_bound, y_bound):
+    def __init__(self, x_bound, y_bound):
         """Docstring."""
-        super().__init__(color, x_bound, y_bound)
-        self.color = GREEN
+        super().__init__((0, 255, 0), x_bound, y_bound)
 
     def move_unique(self):
         """Docstring."""
@@ -82,10 +80,9 @@ class GreenElement(Element):
 class RedElement(Element):
     """Docstring."""
 
-    def __init__(self, color, x_bound, y_bound):
+    def __init__(self, x_bound, y_bound):
         """Docstring."""
-        super().__init__(color, x_bound, y_bound)
-        self.color = RED
+        super().__init__((255, 0, 0), x_bound, y_bound)
 
     def move_unique(self):
         """Docstring."""
@@ -96,10 +93,9 @@ class RedElement(Element):
 class WhiteElement(Element):
     """Docstring."""
 
-    def __init__(self, color, x_bound, y_bound):
+    def __init__(self, x_bound, y_bound):
         """Docstring."""
-        super().__init__(color, x_bound, y_bound)
-        self.color = WHITE
+        super().__init__((255, 255, 255), x_bound, y_bound)
 
     def move_unique(self):
         """Docstring."""
@@ -134,16 +130,16 @@ def draw_environment(element_list):
 def main():
     """Docstring."""
     blue_elements = dict(
-        enumerate([BlueElement(BLUE, WIDTH, HEIGHT)for i in range(
+        enumerate([BlueElement(WIDTH, HEIGHT)for i in range(
             STARTING_BLUE_ELEMENTS)]))
     green_elements = dict(
-        enumerate([GreenElement(GREEN, WIDTH, HEIGHT)for i in range(
+        enumerate([GreenElement(WIDTH, HEIGHT)for i in range(
             STARTING_GREEN_ELEMENTS)]))
     red_elements = dict(
-        enumerate([RedElement(RED, WIDTH, HEIGHT)for i in range(
+        enumerate([RedElement(WIDTH, HEIGHT)for i in range(
             STARTING_RED_ELEMENTS)]))
     white_elements = dict(
-        enumerate([WhiteElement(WHITE, WIDTH, HEIGHT)for i in range(
+        enumerate([WhiteElement(WIDTH, HEIGHT)for i in range(
             STARTING_WHITE_ELEMENTS)]))
 
     while True:
