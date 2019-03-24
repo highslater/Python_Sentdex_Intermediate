@@ -12,6 +12,7 @@ from sys import hexversion
 import pygame
 from datetime import datetime as dt
 from element17 import Element
+from random import randrange as rr
 
 
 NOW = dt.today()
@@ -54,6 +55,62 @@ pygame.display.set_caption("~ Element World ~")
 clock = pygame.time.Clock()
 
 
+class BlueElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = BLUE
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-10, 11)
+        self.y += rr(-10, 11)
+
+
+class GreenElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = GREEN
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-5, 6)
+        self.y += rr(-5, 6)
+
+
+class RedElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = RED
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-3, 4)
+        self.y += rr(-3, 4)
+
+
+class WhiteElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = WHITE
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-1, 2)
+        self.y += rr(-1, 2)
+
+
 def draw_environment(element_list):
     """Docstring."""
 # Log v
@@ -72,7 +129,7 @@ def draw_environment(element_list):
 # Log ^
             pygame.draw.circle(game_display, element.color,
                                [element.x, element.y], element.size)
-            element.move()
+            element.move_unique()
             element.check_bounds()
 
     pygame.display.update()
@@ -80,17 +137,17 @@ def draw_environment(element_list):
 
 def main():
     """Docstring."""
-    red_elements = dict(
-        enumerate([Element(RED, WIDTH, HEIGHT)for i in range(
-            STARTING_RED_ELEMENTS)]))
     blue_elements = dict(
-        enumerate([Element(BLUE, WIDTH, HEIGHT)for i in range(
+        enumerate([BlueElement(BLUE, WIDTH, HEIGHT)for i in range(
             STARTING_BLUE_ELEMENTS)]))
     green_elements = dict(
-        enumerate([Element(GREEN, WIDTH, HEIGHT)for i in range(
+        enumerate([GreenElement(GREEN, WIDTH, HEIGHT)for i in range(
             STARTING_GREEN_ELEMENTS)]))
+    red_elements = dict(
+        enumerate([RedElement(RED, WIDTH, HEIGHT)for i in range(
+            STARTING_RED_ELEMENTS)]))
     white_elements = dict(
-        enumerate([Element(WHITE, WIDTH, HEIGHT)for i in range(
+        enumerate([WhiteElement(WHITE, WIDTH, HEIGHT)for i in range(
             STARTING_WHITE_ELEMENTS)]))
 
     while True:
@@ -100,7 +157,7 @@ def main():
                 quit()
         draw_environment([red_elements, blue_elements,
                           green_elements, white_elements])
-        clock.tick(1)
+        clock.tick(32)
 
 
 if __name__ == '__main__':

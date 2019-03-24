@@ -4,10 +4,9 @@
 
 MODULE for Seventeenth Program of the Sentdex Intermediate Python Series.
 downgraded to accomodate pygame module.
-
 """
 
-import random
+from random import randrange as rr
 
 
 class Element():
@@ -19,17 +18,15 @@ class Element():
         self.color = color
         self.x_bound = x_bound
         self.y_bound = y_bound
-        self.x = random.randrange(0, self.x_bound)
-        self.y = random.randrange(0, self.y_bound)
-        self.size = random.randrange(size_range[0], size_range[1])
+        self.x = rr(0, self.x_bound)
+        self.y = rr(0, self.y_bound)
+        self.size = rr(size_range[0], size_range[1])
         self.movement_range = movement_range
 
     def move(self):
         """Docstring."""
-        self.move_x = random.randrange(
-            self.movement_range[0], self.movement_range[1])
-        self.move_y = random.randrange(
-            self.movement_range[0], self.movement_range[1])
+        self.move_x = rr(self.movement_range[0], self.movement_range[1])
+        self.move_y = rr(self.movement_range[0], self.movement_range[1])
         self.x += self.move_x
         self.y += self.move_y
 
@@ -39,3 +36,59 @@ class Element():
             self.x_bound if self.x > self.x_bound else self.x)
         self.y = 0 if self.y < 0 else (
             self.y_bound if self.y > self.y_bound else self.y)
+
+
+class BlueElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = color
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-12, 13)
+        self.y += rr(-12, 13)
+
+
+class GreenElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = color
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-6, 7)
+        self.y += rr(-6, 7)
+
+
+class RedElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = color
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-4, 5)
+        self.y += rr(-4, 5)
+
+
+class WhiteElement(Element):
+    """Docstring."""
+
+    def __init__(self, color, x_bound, y_bound):
+        """Docstring."""
+        super().__init__(color, x_bound, y_bound)
+        self.color = color
+
+    def move_unique(self):
+        """Docstring."""
+        self.x += rr(-2, 3)
+        self.y += rr(-2, 3)
