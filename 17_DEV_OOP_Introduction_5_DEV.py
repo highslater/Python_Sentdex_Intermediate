@@ -7,11 +7,11 @@ downgraded to accomodate pygame module.
 """
 from random import shuffle
 import pygame
-from element17_DEV import Element as El  # noqa
 from element17_DEV import BlueElement as BEl
 from element17_DEV import GreenElement as GEl
 from element17_DEV import RedElement as REl
 from element17_DEV import WhiteElement as WEl
+
 
 W, H = 1000, 600
 BLACK, BLUE = (0, 0, 0), (0, 0, 255)
