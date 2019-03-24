@@ -2,13 +2,13 @@
 
 """20_Detecting_Collisions.py.
 
-Nineteenth Program of the Sentdex Intermediate Python Series.
+Twentieth Program of the Sentdex Intermediate Python Series.
 
 """
 import logging
+import pygame
 from platform import python_version
 from sys import hexversion
-import pygame
 from datetime import datetime as dt
 from element20 import Element
 from random import randrange as rr
@@ -30,7 +30,6 @@ logger.info("20_Detecting_Collisions.py RUN / START")
 print("Today is:", NOW.strftime("%A, %B, %d, %Y")) if PRINT_TIME else None
 print(version_info) if PRINT_VERSION_INFO else None
 
-
 WIDTH = 1000
 HEIGHT = 600
 
@@ -44,7 +43,6 @@ STARTING_BLUE_ELEMENTS = 10
 STARTING_RED_ELEMENTS = 10
 STARTING_GREEN_ELEMENTS = 10
 STARTING_WHITE_ELEMENTS = 10
-
 
 game_display = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("~ Element World ~")
@@ -65,13 +63,13 @@ class BlueElement(Element):
             other_element.size -= self.size
 
         elif other_element.color == (0, 255, 0):
-            # self.size += other_element.size
-            # other_element.size = 0
-            pass
+            self.size += other_element.size
+            other_element.size = 0
+
         elif other_element.color == (255, 255, 255):
-            # self.size += other_element.size
-            # other_element.size = 0
-            pass
+            self.size += other_element.size
+            other_element.size = 0
+
         elif other_element.color == (0, 0, 255):
             pass
 
@@ -125,20 +123,20 @@ class WhiteElement(Element):
 
 def draw_environment(element_list):
     """Docstring."""
-# # Log v
-#     logger.info('-' * 45)
-#     logger.info(' {}\t{}\t {}\t{}'.format('#', '( x, y )', 'size', 'color'))
-#     logger.info('-' * 45)
-# # Log ^
+# Log v
+    # logger.info('-' * 45)
+    # logger.info(' {}\t{}\t {}\t{}'.format('#', '( x, y )', 'size', 'color'))
+    # logger.info('-' * 45)
+# Log ^
     game_display.fill(BLACK)
     for colored_elements in element_list:
         for element_id in colored_elements:
             element = colored_elements[element_id]
-# # Log v
-#             logger.debug('{} \t{} \t\t{} \t{}'.format(
-#                 element_id, (element.x, element.y),
-#                 element.size, element.color))
-# # Log ^
+# Log v
+            # logger.debug('{} \t{} \t\t{} \t{}'.format(
+            #     element_id, (element.x, element.y),
+            #     element.size, element.color))
+# Log ^
             pygame.draw.circle(game_display, element.color,
                                [element.x, element.y], element.size)
             # element.move_unique()
@@ -166,7 +164,10 @@ def main():
     white_elements = dict(
         enumerate([WhiteElement(WIDTH, HEIGHT)for i in range(
             STARTING_WHITE_ELEMENTS)]))
-# Logger.info
+
+# Log
+    # logger.info("")
+
     # logger.info("~ Blue + Red collision ~")
     # logger.info(('BlueElement size = {}, RedElement size = {}'.format(
     #     blue_elements[0].size, red_elements[0].size)))
@@ -174,17 +175,39 @@ def main():
     # logger.info(('BlueElement size = {}, RedElement size = {}'.format(
     #     blue_elements[0].size, red_elements[0].size)))
     # logger.info("~ Blue + Red collision ~")
-    # logger.info("")
-    # logger.info("~ Blue + Green collision ~")
-    # logger.info(('BlueElement size = {}, GreenElement size = {}'.format(
-    #     blue_elements[1].size, green_elements[1].size)))
-    # blue_elements[1] + red_elements[1]
-    # logger.info(('BlueElement size = {}, GreenElement size = {}'.format(
-    #     blue_elements[1].size, green_elements[1].size)))
-    # logger.info("~ Blue + Green collision ~")
-# Logger.info
 
-    while True:  # THIS must be commented out when debug logging. (- Radius E)
+    # logger.info("")
+
+    # logger.info("~ Blue + Green collision ~")
+    # logger.info(('BlueElement size = {}, GreenElement size = {}'.format(
+    #     blue_elements[1].size, green_elements[1].size)))
+    # blue_elements[1] + green_elements[1]
+    # logger.info(('BlueElement size = {}, GreenElement size = {}'.format(
+    #     blue_elements[1].size, green_elements[1].size)))
+    # logger.info("~ Blue + Green collision ~")
+
+    # logger.info("")
+
+    # logger.info("~ Blue + White collision ~")
+    # logger.info(('BlueElement size = {}, WhiteElement size = {}'.format(
+    #     blue_elements[2].size, white_elements[2].size)))
+    # blue_elements[2] + white_elements[2]
+    # logger.info(('BlueElement size = {}, WhiteElement size = {}'.format(
+    #     blue_elements[2].size, white_elements[2].size)))
+    # logger.info("~ Blue + White collision ~")
+
+    # logger.info("")
+
+    # logger.info("~ Blue + Blue collision ~")
+    # logger.info(('BlueElement size = {}, BlueElement size = {}'.format(
+    #     blue_elements[3].size, blue_elements[4].size)))
+    # blue_elements[3] + blue_elements[4]
+    # logger.info(('BlueElement size = {}, BlueElement size = {}'.format(
+    #     blue_elements[3].size, blue_elements[4].size)))
+    # logger.info("~ Blue + Blue collision ~")
+# Log
+
+    while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -192,7 +215,6 @@ def main():
         draw_environment([red_elements, blue_elements,
                           green_elements, white_elements])
         clock.tick(32)
-
 
 if __name__ == '__main__':
     main()

@@ -1,3 +1,23 @@
-INFO 2019-03-24 15:29:06,019 - The Python Version is: 3.5.2  #50660080
-INFO 2019-03-24 15:29:06,020 - Sunday, March, 24, 2019
-INFO 2019-03-24 15:29:06,020 - 20_Detecting_Collisions.py RUN / START
+INFO 2019-03-24 15:57:54,393 - The Python Version is: 3.5.2  #50660080
+INFO 2019-03-24 15:57:54,393 - Sunday, March, 24, 2019
+INFO 2019-03-24 15:57:54,393 - 20_Detecting_Collisions.py RUN / START
+INFO 2019-03-24 15:57:54,658 - 
+INFO 2019-03-24 15:57:54,658 - ~ Blue + Red collision ~
+INFO 2019-03-24 15:57:54,658 - BlueElement size = 7, RedElement size = 7
+INFO 2019-03-24 15:57:54,658 - BlueElement size = 0, RedElement size = 7
+INFO 2019-03-24 15:57:54,658 - ~ Blue + Red collision ~
+INFO 2019-03-24 15:57:54,659 - 
+INFO 2019-03-24 15:57:54,659 - ~ Blue + Green collision ~
+INFO 2019-03-24 15:57:54,659 - BlueElement size = 7, GreenElement size = 8
+INFO 2019-03-24 15:57:54,659 - BlueElement size = 15, GreenElement size = 0
+INFO 2019-03-24 15:57:54,659 - ~ Blue + Green collision ~
+INFO 2019-03-24 15:57:54,659 - 
+INFO 2019-03-24 15:57:54,659 - ~ Blue + White collision ~
+INFO 2019-03-24 15:57:54,659 - BlueElement size = 7, WhiteElement size = 5
+INFO 2019-03-24 15:57:54,659 - BlueElement size = 12, WhiteElement size = 0
+INFO 2019-03-24 15:57:54,659 - ~ Blue + White collision ~
+INFO 2019-03-24 15:57:54,659 - 
+INFO 2019-03-24 15:57:54,659 - ~ Blue + Blue collision ~
+INFO 2019-03-24 15:57:54,659 - BlueElement size = 9, BlueElement size = 6
+INFO 2019-03-24 15:57:54,659 - BlueElement size = 9, BlueElement size = 6
+INFO 2019-03-24 15:57:54,660 - ~ Blue + Blue collision ~
