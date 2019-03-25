@@ -7,11 +7,13 @@ Twentieth Program of the Sentdex Intermediate Python Series.
 """
 import logging
 import pygame
+import numpy as np
 from platform import python_version
 from sys import hexversion
 from datetime import datetime as dt
 from element20 import Element
 from random import randrange as rr
+
 
 NOW = dt.today()
 PRINT_VERSION_INFO = True
@@ -39,10 +41,10 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 
-STARTING_BLUE_ELEMENTS = 10
-STARTING_RED_ELEMENTS = 10
-STARTING_GREEN_ELEMENTS = 10
-STARTING_WHITE_ELEMENTS = 10
+STARTING_BLUE_ELEMENTS = 100
+STARTING_RED_ELEMENTS = 100
+STARTING_GREEN_ELEMENTS = 100
+STARTING_WHITE_ELEMENTS = 100
 
 game_display = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("~ Element World ~")
@@ -121,6 +123,32 @@ class WhiteElement(Element):
         self.y += rr(-1, 2)
 
 
+def is_touching(e1, e2):
+    """Docstring."""
+    return (np.linalg.norm(
+        np.array([e1.x, e1.y]) - np.array([e2.x, e2.y])) < (e1.size + e2.size))
+
+
+def collision_handler(element_list):
+    """Docstring."""
+    blues, greens, reds, whites = element_list
+    for blue_id, blue_element in blues.copy().items():
+        for other_elements in blues, greens, reds, whites:
+            for other_element_id, other_element in (
+                    other_elements.copy().items()):
+                if blue_element == other_element:
+                    pass
+                else:
+                    if is_touching(blue_element, other_element):
+                        blue_element + other_element
+                        if other_element.size <= 0:
+                            del other_elements[other_element_id]
+                        if blue_element.size <= 0:
+                            del blues[blue_id]
+
+    return blues, greens, reds, whites
+
+
 def draw_environment(element_list):
     """Docstring."""
 # Log v
@@ -128,6 +156,7 @@ def draw_environment(element_list):
     # logger.info(' {}\t{}\t {}\t{}'.format('#', '( x, y )', 'size', 'color'))
     # logger.info('-' * 45)
 # Log ^
+    blues, greens, reds, whites = collision_handler(element_list)
     game_display.fill(BLACK)
     for colored_elements in element_list:
         for element_id in colored_elements:
@@ -140,14 +169,15 @@ def draw_environment(element_list):
             pygame.draw.circle(game_display, element.color,
                                [element.x, element.y], element.size)
             # element.move_unique()
-            element.move()
-            # if element.color == (0, 0, 255):
-            #     element.move_unique()
-            # else:
-            #     element.move()
-            # element.check_bounds()
+            # element.move()
+            if element.color == (0, 0, 255):
+                element.move_unique()
+            else:
+                element.move()
+            element.check_bounds()
 
     pygame.display.update()
+    return blues, greens, reds, whites
 
 
 def main():
@@ -165,7 +195,7 @@ def main():
         enumerate([WhiteElement(WIDTH, HEIGHT)for i in range(
             STARTING_WHITE_ELEMENTS)]))
 
-# Log
+# Log v
     # logger.info("")
 
     # logger.info("~ Blue + Red collision ~")
@@ -205,15 +235,16 @@ def main():
     # logger.info(('BlueElement size = {}, BlueElement size = {}'.format(
     #     blue_elements[3].size, blue_elements[4].size)))
     # logger.info("~ Blue + Blue collision ~")
-# Log
+# Log ^
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        draw_environment([red_elements, blue_elements,
-                          green_elements, white_elements])
+        blue_elements, green_elements, red_elements, white_elements = (
+            draw_environment([blue_elements,
+                             green_elements, red_elements, white_elements]))
         clock.tick(32)
 
 if __name__ == '__main__':
