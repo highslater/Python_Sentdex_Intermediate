@@ -85,8 +85,8 @@ def graph_operation(x, y):
     plt.plot(x, y)
     plt.show()
 
-x1 = [1, 2, 3]
-y1 = [2, 3, 1]
+x1 = [2, 3, 4, 5, 6, 1, 2]
+y1 = [1, 2, 0, 2, 0, 2, 1]
 
 graph_me = [x1, y1]
 
