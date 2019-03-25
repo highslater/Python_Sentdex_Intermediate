@@ -30,7 +30,7 @@ print(version_info) if PRINT_VERSION_INFO else None
 x = (i for i in range(10))
 
 print("", "*" * 90)
-[print(i, end=", ") for i in x]
+[print("", i, end=", ") for i in x]
 print("\n", "*" * 90)
 
 x = (i for i in range(10))
@@ -38,7 +38,7 @@ next(x)
 next(x)
 next(x)
 print("", "*" * 90)
-[print(i, end=", ") for i in x]
+[print("", i, end=", ") for i in x]
 print("\n", "*" * 90)
 
 x = (i for i in range(10))
@@ -46,13 +46,13 @@ x.__next__()
 x.__next__()
 x.__next__()
 print("", "*" * 90)
-[print(i, end=", ") for i in x]
+[print("", i, end=", ") for i in x]
 print("\n", "*" * 90)
 
 x = (i for i in range(10))
 
 print("", "*" * 90)
-print(dir(x))
+# print("", dir(x))
 print("\n", "*" * 90)
 
 '''
@@ -93,7 +93,7 @@ class RangeExample():
 
 print("", "*" * 90)
 for i in RangeExample(15):
-    print(i, end=", ")
+    print("", i, end=", ")
 print("\n", "*" * 90)
 
 x = (i for i in RangeExample(15))
@@ -104,7 +104,7 @@ next(x)
 next(x)
 next(x)
 print("", "*" * 90)
-[print(i, end=", ") for i in x]
+[print("", i, end=", ") for i in x]
 print("\n", "*" * 90)
 
 x = (i for i in RangeExample(15))
@@ -119,7 +119,7 @@ def range_gen(end):
 
 print("", "*" * 90)
 for i in range_gen(5):
-    print(i, end=", ")
+    print("", i, end=", ")
 print("\n", "*" * 90)
 
 x = range_gen(5)
@@ -127,5 +127,5 @@ x.__next__()
 
 print("", "*" * 90)
 for i in x:
-    print(i, end=", ")
+    print("", i, end=", ")
 print("\n", "*" * 90)
