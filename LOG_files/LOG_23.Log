@@ -1,4 +1,0 @@
-INFO 2019-03-25 14:38:30,822 - The Python Version is: 3.5.2  #50660080
-INFO 2019-03-25 14:38:30,822 - Monday, March, 25, 2019
-INFO 2019-03-25 14:38:30,822 - 23_Error_Handling.py RUN / START
-ERROR 2019-03-25 14:38:30,822 - Line:39, <class 'NameError'>, name 'a' is not defined
