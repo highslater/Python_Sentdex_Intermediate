@@ -2,7 +2,7 @@
 
 """23_Error_Handling.py.
 
-Twenty-Second Program of the Sentdex Intermediate Python Series.
+Twenty-Third Program of the Sentdex Intermediate Python Series.
 
 """
 import logging
