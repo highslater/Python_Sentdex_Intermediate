@@ -1,3 +1,6 @@
-INFO 2019-03-25 16:55:52,317 - The Python Version is: 3.7.2  #50791152
-INFO 2019-03-25 16:55:52,318 - Monday, March, 25, 2019
-INFO 2019-03-25 16:55:52,318 - 25_args_kwargs.py RUN / START
+INFO 2019-03-25 18:46:40,939 - The Python Version is: 3.5.2  #50660080
+INFO 2019-03-25 18:46:40,939 - Monday, March, 25, 2019
+INFO 2019-03-25 18:46:40,939 - 25_args_kwargs.py RUN / START
+DEBUG 2019-03-25 18:46:41,102 - update_title_pos
+DEBUG 2019-03-25 18:46:41,133 - findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/j/.local/lib/python3.5/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+DEBUG 2019-03-25 18:46:41,203 - update_title_pos
